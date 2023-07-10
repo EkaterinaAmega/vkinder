@@ -37,6 +37,10 @@ class BotInterface():
                     self.message_send(
                         event.user_id, f'Здравствуйте {self.params["name"]}')
                 elif command == 'поиск':
+                    if self.params == None:
+                        self.message_send(event.user_id, 'Параметры вашего профиля не заданы')
+                        return
+
                     self.message_send(event.user_id, 'Начинаем искать..')
                     active = self.search_active_user(event)
 
